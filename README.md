@@ -1,5 +1,29 @@
 # WhatsupCloneFront
 
+
+kreirao sam prvo stylove i konfigurirao import za fontAwesoke i druge slicne stvari
+kreirao sam loyout kako ce izgledati whatsapp
+dodao sam state model, user model authenticatiom i request model s pagination
+insalirao dependecy za dayjs i ngxtension
+dodao servis outhaservice i envirometn s podesenim keycloak-om
+
+dodao silentCheckSsoRedirectUrl.html jer je potreban kod inicjalne inteditifiackje key-cloak-a
+dovrsaio outh-atuh servide 
+
+
+kreirao auth model componentu i dodao slike
+
+kreiralo smi u outh2 modulu html s kreiranim div buttonom i d-flex flex column 
+
+te trebati ce nam 2 interceptora :
+ 1 http-auth interceptor s 2 par req i next ( u toj metodi svaki put kada napravi http request injectat ce Bearer token unutar authorizatin header-a)
+ 2 u slucaju da je excess token istekao
+te ih moramo doati unutar naseg appConfiga
+
+te smo dodali u component app init authenitcation i outh service injectali
+
+
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.1.1.
 
 ## Development server

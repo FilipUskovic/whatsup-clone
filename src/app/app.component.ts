@@ -2,6 +2,7 @@ import {Component, inject, OnInit} from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import {FaIconComponent, FaIconLibrary} from "@fortawesome/angular-fontawesome";
 import {fontAwesomeIcons} from "./shared/font-awesome-icons";
+import {Oauth2AuthService} from "./auth/oauth2-auth.service";
 
 @Component({
   selector: 'wac-root',
@@ -15,9 +16,15 @@ export class AppComponent implements OnInit {
 
   // incijaliziram fontawesome liabry
   private faIconLibrary = inject(FaIconLibrary)
+  private ouath2Service = inject(Oauth2AuthService);
 
   ngOnInit(): void {
     this.initFontAwesome();
+    this.initAuthentication();
+  }
+
+  private initAuthentication(){
+    this.ouath2Service.initAuthentication();
   }
 
   private initFontAwesome() {

@@ -22,6 +22,13 @@ te ih moramo doati unutar naseg appConfiga
 
 te smo dodali u component app init authenitcation i outh service injectali
 
+ddaod u anglr js path za srv assets da se slika moze vidjeti
+
+kreirao navbar komponentu
+i uredio scss stil de
+
+kreirali smo nav bar s ngbDropdown menuom te dodali i app component html idnex
+
 
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.1.1.

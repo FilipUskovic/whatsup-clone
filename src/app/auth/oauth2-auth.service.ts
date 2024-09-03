@@ -41,9 +41,9 @@ export class Oauth2AuthService {
   private fetchUser$: WritableSignal<State<ConnectedUser>> =
     signal(State.Builder<ConnectedUser>().forSuccess({email: this.notConnected}));
   // biti ce derivate od fectUser signal
-  fetchUser = computed(() => this.fetchUser$);
+  fetchUser = computed(() => this.fetchUser$());
 
-  public initAuthentication(): void{
+  public initAuthentication(): void {
     from(this.keycloak.init({
       flow: "standard",
       onLoad: "check-sso",
@@ -66,9 +66,9 @@ export class Oauth2AuthService {
   }
 
   // metoda za komuniciranje s api-om
-  initFetchUserCaching(forceResync: boolean = true): void {
+  initFetchUserCaching(forceResync: boolean): void {
    const params = new HttpParams().set("forceResync", forceResync);
-   this.fetchUserHttp$ = this.http.get<ConnectedUser>( `${environment.API_URL}/api/users/get-authenticated-user`, {params: params})
+   this.fetchUserHttp$ = this.http.get<ConnectedUser>( `${environment.API_URL}/users/get-authenticated-user`, {params: params})
      // angular nece se pozvati svaki puta kada pozivamo fetchUserMetodu i moramo imati observabale http da bi mogli reusati
      .pipe(
        catchError(() => of({email: this.notConnected})),
